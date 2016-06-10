@@ -59,8 +59,8 @@ func repoHandler(w http.ResponseWriter, r *http.Request) {
 
 func startServer() {
 	// http.HandleFunc("/", handler)
-	http.HandleFunc("/", repoHandler)
-	http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/api/", repoHandler)
+	http.ListenAndServe(":1010", nil)
 }
 
 func walker(dirname string, entry *git.TreeEntry) int {

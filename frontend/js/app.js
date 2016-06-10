@@ -5,7 +5,7 @@ $('button').on('click', function() {
 		alert('Please provide a url.');
 	}
 
-	var url = 'http://localhost:8080/repo=' + uri;
+	var url = 'http://localhost:1010/api/repo=' + uri;
 
 	$.ajax({
 		url: url,
