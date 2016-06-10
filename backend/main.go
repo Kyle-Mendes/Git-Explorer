@@ -51,14 +51,22 @@ func repoHandler(w http.ResponseWriter, r *http.Request) {
 	branches := getBranches(tree)
 
 	payload := Payload{tree, branches}
-
 	p, _ := json.Marshal(payload)
-	w.Write(p)
+
+	callback := r.FormValue("callback")
+	if callback != "" {
+		fmt.Fprintf(w, "%s(%s)", callback, p)
+	} else {
+		w.Write(p)
+
+	}
+
 	os.RemoveAll("./tmp/" + escape)
 }
 
 func startServer() {
-	// http.HandleFunc("/", handler)
+	fmt.Println("started")
+
 	http.HandleFunc("/api/", repoHandler)
 	http.ListenAndServe(":1010", nil)
 }
@@ -159,6 +167,8 @@ func main() {
 	// 		}
 	// 		os.Exit(1)
 	// 	}
+
+	fmt.Println("starting")
 
 	startServer()
 }
