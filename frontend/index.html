@@ -8,15 +8,23 @@
 		<meta name="description" content="The HTML5 Herald">
 		<meta name="author" content="SitePoint">
 		<script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" crossorigin="anonymous"></script>
 
-		<link rel="stylesheet" href="css/styles.css?v=1.0">
+		<link rel="stylesheet" href="css/styles.css">
 	</head>
 
 	<body>
-		<div>
-			<b>http://</b>
-			<input type="text" placeholder="Put your (public) git repo here!" />
-			<button>Get it!</button>
+		<svg width="100%" height="100%" viewBox="-300 -500 1200 1200" preserveAspectRatio="xMinYMin meet"></svg>
+		<div class="input center-content">
+			<p class="error"></p>
+			<form onSubmit="return updateRepo(event)">
+				<b>http://</b>
+				<input type="text" placeholder="Put your (public) git repo here!" />
+				<button type="submit">Get it!</button>
+			</form>
+
+			<button onClick="return zoomIn()">Zoom in</button>
+			<button onClick="return zoomOut()">Zoom out</button>
 		</div>
 		<script src="js/app.js"></script>
 	</body>

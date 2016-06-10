@@ -1,0 +1,35 @@
+html,
+body {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+svg {
+  cursor: move;
+}
+
+.error {
+  color: red;
+}
+
+form, button {
+  display: inline-block;
+}
+
+div.input {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+
+  height: 100px;
+  text-align: center;
+
+  border-top: 1px solid #eee;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+}
